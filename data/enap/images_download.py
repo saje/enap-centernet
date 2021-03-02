@@ -32,13 +32,13 @@ print(len([
         "Vehículo", 
         "Zanja", 
           ]))
-
+'''
 
    
-with open("VIA-KAUEL-J_coco.json") as json_file:
+with open("data/enap/20200819_ENAP.json") as json_file:
     data=json.load(json_file)
     for i in data["images"]:
-      nombre="enap_images/{}".format(i["coco_url"].split("/")[8])
+      nombre="data/enap/images/{}".format(i["coco_url"].split("/")[8])
       if not os.path.isfile(nombre):
         myurl=i["coco_url"]
         myreq=urllib.request.urlopen(i["coco_url"])
@@ -46,10 +46,11 @@ with open("VIA-KAUEL-J_coco.json") as json_file:
         mydata = myreq.read()
         with open(nombre, 'wb') as ofile:
           ofile.write(mydata)
+        time.sleep(2)
 largo=len(data["images"])
 print(f"Descargue {largo}")      
-'''
 
+'''
 valid_ids = [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 
@@ -63,3 +64,4 @@ num_classes=24
 print({v:i for i,v in enumerate(valid_ids)})
 print([(v // 32 * 64 + 64, (v // 8) % 4 * 64, v % 8 * 32) \
                       for v in range(1, num_classes + 1)])
+'''
