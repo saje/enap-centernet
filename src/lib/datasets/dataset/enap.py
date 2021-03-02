@@ -20,8 +20,13 @@ class ENAP(data.Dataset):
 
   def __init__(self, opt, split):
     super(ENAP, self).__init__()
+    self.data_dir= os.path.join(opt.data_dir, 'enap')
+    self.img= os.path.join(opt.data_dir, 'enap')
+    self.annot_path=os.path.join(self.data_dir,"20200819_ENAP")
     #self.data_dir = os.path.join(opt.data_dir, 'enap')
-    self.img_dir = os.path.join(self.data_dir, '{}2017'.format(split))
+    #self.img_dir = os.path.join(self.data_dir, '{}2017'.format(split))
+
+    '''
     if split == 'test':
       self.annot_path = os.path.join(
           self.data_dir, 'annotations', 
@@ -35,6 +40,7 @@ class ENAP(data.Dataset):
         self.annot_path = os.path.join(
           self.data_dir, 'annotations', 
           'instances_{}2017.json').format(split)
+    '''
     self.max_objs = 128
     self.class_name = [
         "Animal", 
@@ -88,7 +94,7 @@ class ENAP(data.Dataset):
     self.split = split
     self.opt = opt
 
-    print('==> initializing coco 2017 {} data.'.format(split))
+    print('==> initializing  20200819_ENAP data.')
     self.coco = coco.COCO(self.annot_path)
     self.images = self.coco.getImgIds()
     self.num_samples = len(self.images)
