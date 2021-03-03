@@ -3,6 +3,7 @@ legacy/*
 debug/*
 *.DS_Store
 *.json
+!dataset_enap_coco.json
 *.mat
 src/.vscode/*
 preds/*
