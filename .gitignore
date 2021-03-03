@@ -9,6 +9,7 @@ src/.vscode/*
 preds/*
 *.h5
 *.pth
+!ctdet_coco_dla_2x.pth
 *.checkpoint
 # Byte-compiled / optimized / DLL files
 __pycache__/
